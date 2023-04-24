@@ -127,7 +127,7 @@ class EPUBBookLoader(BaseBookLoader):
             new_p.string = self.p_to_save[index]
         else:
             if type(p) == NavigableString:
-                new_p = self.translate_model.translate(new_p.text)
+                new_p = self.translate_model.translate(new_p.text.replace("$", ""))
                 self.p_to_save.append(new_p)
             else:
                 new_p.string = self.translate_model.translate(new_p.text)
